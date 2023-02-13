@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="NoticeMapper">
+
+	<resultMap type="notice.model.vo.Notice" id="noticeResultMap">
+		<id 	property="noticeNo" 		column="NOTICE_NO"/>
+		<result property="noticeSubject" 	column="NOTICE_SUBJECT"/>
+		<result property="noticeContent" 	column="NOTICE_CONTENT"/>
+		<result property="noticeWriter" 	column="NOTICE_WRITER" />
+		<result property="noticeDate" 		column="NOTICE_DATE"/>
+		<result property="noticeCount" 		column="VIEW_COUNT"/>
+	</resultMap>
+	<insert id="insertNotice" parameterType="notice.model.vo.Notice">
+		INSERT INTO NOTICE_TBL VALUES(SEQ_NOTICENO.NEXTVAL, #{noticeSubject }, #{noticeContent }, #{noticeWriter },DEFAULT, DEFAULT)
+	</insert>
+	<select id="selectAllNotice" resultMap="noticeResultMap">
+		SELECT * FROM NOTICE_TBL
+	</select>
+</mapper>
+  
