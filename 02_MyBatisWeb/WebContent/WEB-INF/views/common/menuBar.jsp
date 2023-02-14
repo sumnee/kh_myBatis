@@ -8,7 +8,7 @@
         <style>
             h1 {
                 text-align: center;
-                color: red;
+                color: gray;
             }
             .menu {
                 display: table-cell;
@@ -48,6 +48,9 @@
                         <td>비밀번호 : </td>
                         <td><input type="password" name="member-pw"></td>
                     </tr>
+                    <tr>
+                        <td colspan="2"><a href="/member/register.do">회원가입</a></td>
+                    </tr>
                 </table>
             </form>
             <c:if test="${sessionScope.member ne null }">
@@ -67,11 +70,18 @@
         		
         </div>
         <div>
-            <div class="menu" onclick="">Home</div>
-            <div class="menu" onclick="">MemberList</div>
+            <div class="menu" onclick="javascript:location.href='/index.jsp'">Home</div>
+            <!-- 내부에서 연결 -->
+            <div class="menu" onclick="moveMemberList();">MemberList</div>
             <div class="menu" onclick="">ClassList</div>
             <div class="menu" onclick="">Notice</div>
             <div class="menu" onclick="">ETC</div>
         </div>
+        <script>
+        	//외부에서 연결
+        	function moveMemberList() {
+				location.href = "/member/list.do";
+			}
+        </script>
     </body>
 </html>
