@@ -65,4 +65,12 @@ public interface MemberStore {
 	 * @return String
 	 */
 	public String generateNavi(SqlSession session, int currentPage);
+	
+	
+	/**
+	 * 전체 회원 수 Store
+	 * @param session
+	 * @return int
+	 */
+	public int getTotalCount(SqlSession session);
 }

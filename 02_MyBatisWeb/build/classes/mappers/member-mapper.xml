@@ -23,6 +23,9 @@
 			이것도 가능하나 오래된 사람이 1번이 되고 / 지금 쓴 것은 최근 가입자가 1번이됨!
 		-->
  	</select>
+ 	<select id="getTotalCount" resultType="_int">
+ 		SELECT COUNT(*) FROM MEMBER_TBL
+ 	</select>
  	<select id="selectOneById" resultMap="memberResultMap">
  		SELECT * FROM MEMBER_TBL WHERE MEMBER_ID = #{memberId }
  	</select>
